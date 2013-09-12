@@ -2,16 +2,14 @@ stress-testsuite
 ================
 
 
-##Setup
-================
+## Setup
 
 
 Download [The Grinder](http://sourceforge.net/projects/grinder/) and unzip it wherever you prefer.
 Scripts for environment settings are provided. Change file "setupEnv.sh" accordingly with your installation.  
 For more information see [this documentation page](http://grinder.sourceforge.net/g3/getting-started.html#howtostart).
 
-##VOMS script requirements
-================
+## VOMS script requirements
 
 The file "grinder.properties" is set to use the script "vomstest.py", which requires the creation of a keystore to work properly.
 Create a keystore to store your credentials (PKCS12 format is used in this example): 
@@ -23,7 +21,6 @@ Create a keystore to store your credentials (PKCS12 format is used in this examp
 
 
 ##Execution
-================
 
 In order to start the console and the agent run the following commands: 
 
