@@ -14,8 +14,6 @@ host=variables.voms_host
 
 resource="/generate-ac"
 
-#request = HTTPRequest()
-
 class TestRunner:
     def __call__(self):
 
@@ -23,7 +21,6 @@ class TestRunner:
 
 
 	for index in range(len(vo_keys)):
-		#vo = random.choice(list_vo.keys())
 		vo = vo_keys[index]
 		test = Test(index, "VOMS AC for VO "+vo)
 	        request = HTTPRequest()
