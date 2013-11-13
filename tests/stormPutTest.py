@@ -14,10 +14,12 @@ props=grinder.properties
 storm_endpoint=props.get('grinder.storm.endpoint')
 storm_SA=props.get('grinder.storm.sa')
 
+### default tests dir ###
+tests_dir = "PtP_tests"
 
-### Prepare to Put and Put Done commands  ###
+### Prepare-to-Put and Put-Done commands  ###
 
-base_command=" -e " + storm_endpoint + " -s srm://" + storm_endpoint + "/srm/managerv2?SFN=/" + storm_SA + "/"
+base_command=" -e " + storm_endpoint + " -s srm://" + storm_endpoint + "/srm/managerv2?SFN=/" + storm_SA + "/" + tests_dir + "/"
 
 PTP_COMMAND="clientSRM ptp -p" + base_command
 PD_COMMAND="clientSRM pd" + base_command
@@ -40,7 +42,7 @@ test = Test(1, "Put request")
 
 class srmRequest:
 
-### Return stdout and stderr for the executed command ###
+### Returns stdout and stderr for the executed command ###
 
     def runSrmRequest(self,cmd):
        p = subprocess.Popen([cmd, ''], shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
@@ -49,7 +51,7 @@ class srmRequest:
        return (out,err)
 
 
-### Return the matched expression or None otherwise  ###
+### Returns the matched expression or None otherwise  ###
 
 class TestRunner:
 
@@ -63,7 +65,7 @@ class TestRunner:
 	return res
 
 
-### Execute a ptp and in case of success a pd  ###
+### Executes a ptp and in case of success a pd  ###
 
     def __call__(self):
 
